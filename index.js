@@ -1,10 +1,15 @@
 class JSONMiddleware {
   parse(req, res, next) {
-    const JSONObject = {};
-    Object.keys(req.query).map(key =>{
-      JSONObject[key] = JSON.parse(req.query[key]);
-    })
-    req.query = JSONObject;
+    if (req.query !== undefined) {
+      const JSONQuery = {};
+      Object.keys(req.query).map(key => {
+        JSONQuery[key] = JSON.parse(req.query[key]);
+      })
+      req.query = JSONQuery;
+      return next();
+    }
+  }
+  else {
     return next();
   }
 }
