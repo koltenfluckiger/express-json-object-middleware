@@ -4,7 +4,7 @@
 <ul>
 <li>Allows to convert axios params back into Objects</li>
 <li>Easy to use</li>
-<li>Helps with mongoose requests such as find, update, delete etc.</li>
+<li>Helps with mongoose requests such as find, update, delete etc. which require objects</li>
 </ul>
 <br>
 <h1>How to use with Express</h1>
