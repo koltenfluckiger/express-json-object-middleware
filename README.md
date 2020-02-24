@@ -62,16 +62,28 @@ parse(req, res, next){
   // console.log(typeof(req.query.filter))
   // prints String
 
-  const JSONObject = {};
-  Object.keys(req.query).map(key =>{
-    JSONObject[key] = JSON.parse(req.query[key]);
-  })
+    parse(req, res, next) {
+      if ((req.query === undefined) || (req.query.params === undefined)) {
+        return next()
+      };
+      const JSONQuery = {};
+      const query = typeof(req.query.params) === "string"
+        ? JSON.parse(req.query.params)
+        : req.query.params;
+      Object.keys(query).map(key => {
+        JSONQuery[key] = query[key];
+      })
+      req.query = JSONQuery;
+      return next();
+    }
+  }
   // console.log(JSONObject)
   // prints {filter: {_id: 1}}
   // console.log(typeof(JSONObject.filter))
   // prints Object
   // Edits the query after converting it to a Object
-  req.query = JSONObject;
+
+  req.query = JSONQuery;
   return next();
 }
 ```

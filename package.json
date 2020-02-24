@@ -1,11 +1,8 @@
 {
   "name": "express-json-object-middleware",
-  "version": "1.0.1",
+  "version": "^1.0.6",
   "description": "Converts JSON into Objects before passing the object through the middleware chain. Useful when using mongoose which takes objects for filters, searches, updates, and more.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/koltenfluckiger/express-json-object-middleware.git"
