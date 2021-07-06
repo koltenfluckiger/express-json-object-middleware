@@ -73,16 +73,13 @@ parse(req, res, next){
         JSONQuery[key] = query[key];
       })
       req.query = JSONQuery;
+      // console.log(JSONObject)
+      // prints {filter: {_id: 1}}
+      // console.log(typeof(JSONObject.filter))
+      // prints Object
+      // Edits the query after converting it to a Object
       return next();
     }
   }
-  // console.log(JSONObject)
-  // prints {filter: {_id: 1}}
-  // console.log(typeof(JSONObject.filter))
-  // prints Object
-  // Edits the query after converting it to a Object
 
-  req.query = JSONQuery;
-  return next();
-}
 ```
