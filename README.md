@@ -61,8 +61,7 @@ parse(req, res, next){
   // req.query = {filter: '{_id: 1}'}
   // console.log(typeof(req.query.filter))
   // prints String
-
-    parse(req, res, next) {
+  
       if ((req.query === undefined) || (req.query.params === undefined)) {
         return next()
       };
